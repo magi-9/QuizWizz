@@ -32,9 +32,11 @@ export default defineConfig({
     strictPort: true,
     allowedHosts: [
       'quiz.bytboyzserver.xyz',
+      'quiz.tomag.xyz',
       'localhost',
       '127.0.0.1',
-      '.bytboyzserver.xyz'
+      '.bytboyzserver.xyz',
+      '.tomag.xyz'
     ],
     proxy: {
       '/api': {
