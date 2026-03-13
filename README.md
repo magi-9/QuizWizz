@@ -156,4 +156,22 @@ run.sh             # Convenience script to start backend + frontend
 
 5. **HTTPS**: Always use HTTPS in production to protect session cookies and CSRF tokens.
 
+## Dokploy Deployment (Minimal Resources)
+
+This repository includes `docker-compose.dokploy.yml` prepared for Dokploy with low resource limits and no host bind mounts.
+
+1. In Dokploy, create a new project from this Git repository and select branch `main`.
+2. Set compose file path to `docker-compose.dokploy.yml`.
+3. Configure these environment variables in Dokploy:
+   - `SECRET_KEY` (required)
+   - `DEBUG=0`
+   - `ALLOWED_HOSTS=<your-domain>`
+   - `CORS_ORIGIN_WHITELIST=https://<your-domain>`
+   - `CSRF_TRUSTED_ORIGINS=https://<your-domain>`
+4. Deploy.
+
+Current max limits in Dokploy compose:
+- Frontend: `0.15 CPU`, `192MB RAM`
+- Backend: `0.20 CPU`, `256MB RAM`
+
 You now have everything needed to run Quizwizz with Docker. Happy quizzing!
